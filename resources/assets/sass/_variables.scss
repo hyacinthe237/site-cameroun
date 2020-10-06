@@ -1,0 +1,95 @@
+
+// Body
+// $body-bg: #f5f8fa;
+$body-bg: #f1f1f1;
+
+// Borders
+$laravel-border-color: darken($body-bg, 10%);
+$list-group-border: $laravel-border-color;
+$navbar-default-border: $laravel-border-color;
+$panel-default-border: $laravel-border-color;
+$panel-inner-border: $laravel-border-color;
+
+// Brands
+$brand-primary:     #005FBF;
+$brand-info:        #8eb4cb;
+$brand-success:     #27B086;
+$brand-warning:     #f9c200;
+$brand-danger:      #f00;
+$brand-teal:        #636d7e;
+$brand-presumi:     #007fff;
+$brand-orange:      #fa5b49;
+$brand-dark:        #353847;
+$brand-darker:      #232c32;
+$brand-dark-light:  #4a5568;
+$brand-wise:        #38548b;
+$brand-wise-dark:   #304773;
+$brand-grey:        #9EA4AE;
+$brand-greyer:      #777F8E;
+$brand-purple:      #6772e5;
+$brand-yellow:      #f9c200;
+$brand-yellow-dark: #dfa405;
+
+$color-primary:         $brand-primary;
+$color-secondary:       $brand-success;
+$color-red:             #f32f55 !default;
+$color-white:           #fff    !default;
+$color-green:           #02a747 !default;
+$color-greener:         #06ca87 !default;
+$color-dark:            #232c32 !default;
+$color-purple:          #6772e5 !default;
+$color-darker:          #181f24 !default;
+$color-darkest:         #0d1215 !default;
+$color-blue-presumi:    #007fff !default;
+$color-blue-paypal:     #0070ba !default;
+$color-blue-facebook:   #3b5998  !default;
+$color-orange:          #fa5b49 !default;
+$color-teal:            #7f8692 !default;
+$color-grey:            #3c475b !default;
+
+
+$user-dark:             #21292f !default;
+$user-darker:           #1b2227 !default;
+$user-darkest:          #1c1f27 !default;
+$user-orange:           #fa5b49 !default;
+
+
+// Typography
+$icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
+$font-family-sans-serif: "Raleway", sans-serif;
+$font-size-base: 14px;
+$line-height-base: 1.6;
+$text-color: #636b6f;
+
+// Navbar
+$navbar-default-bg: #fff;
+
+// Buttons
+$btn-default-color: $text-color;
+
+// Inputs
+$input-border: lighten($text-color, 40%);
+$input-border-focus: lighten($brand-primary, 25%);
+$input-color-placeholder: lighten($text-color, 30%);
+
+// Panels
+$panel-default-heading-bg: #fff;
+
+// Colours
+$linkColour: $brand-primary;
+$linkHoverBackgroundColour: $brand-dark-light;
+$primaryColour: $brand-presumi;
+$secondaryColour: $brand-success;
+$navColour: $brand-dark;
+$fontColour: $brand-dark;
+$primaryFontColour: $brand-dark;
+$secondaryFontColour: white;
+$navBackgroundColour: $brand-success;
+$navActiveBackgroundColour: $brand-yellow-dark;
+$navHoverColour: #f9f9f9;
+$footerBackground: $brand-darker;
+$navTransparentLinkColour: white;
+$navTransparentLinkActiveColour: $brand-warning;
+
+$navbar-height: 50px;
+$sidebar-width: 200px;
