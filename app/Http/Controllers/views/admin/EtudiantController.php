@@ -112,7 +112,7 @@ class EtudiantController extends Controller
         } else {
           return redirect()->back()
                 ->withInput($request->all())
-                ->withErrors(['existing' => 'Cet étudiant a déjà été enregistré']);
+                ->withErrors(['existing' => 'Un étudiant ayant un Téléphone identique a celui saisi a déjà été enregistré']);
         }
 
     }
