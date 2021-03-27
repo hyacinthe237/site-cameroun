@@ -49,18 +49,19 @@ class AuthController extends Controller
 
         $user = User::where('email', $request->email)->first();
 
-        if ( !$user )
-        return redirect()->back()->withErrors([
-            "user"   => "Ce compte n'existe pas"
-        ])->withInput($request->except('password'));
+        if (!$user) {
+            return redirect()->back()->withErrors([
+                "user"   => "Ce compte n'existe pas"
+            ])->withInput($request->except('password'));
+        }
 
-        if ( !$user->is_active ) {
+        if ($user->status != 'active') {
             return redirect()->back()->withErrors([
                 "user"   => "Ce compte n'est pas actif"
             ])->withInput($request->except('password'));
         }
 
-        if (Auth::attempt(['email' => $request->email, 'password' => $request->password, 'is_active' => true])) {
+        if (Auth::attempt(['email' => $request->email, 'password' => $request->password, 'status' => 'active'])) {
             return redirect()->to('/admin');
         }
 
@@ -87,7 +88,7 @@ class AuthController extends Controller
 
         $user->password = bcrypt($request->password);
         $user->save();
-        
+
         return redirect()->back()->with('message', 'Mot de passe changé avec succès');
     }
 

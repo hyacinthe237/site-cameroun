@@ -18,7 +18,7 @@ class CreatePostCategoriesTable extends Migration
             $table->string('code')->nullable();
             $table->string('parent_id')->nullable();
             $table->string('name');
-            $table->string('slug');
+            $table->string('slug')->nullable();
             $table->text('description')->nullable();
             $table->timestamps();
         });

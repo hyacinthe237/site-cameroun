@@ -18,7 +18,7 @@ class CreatePostsTable extends Migration
             $table->string('code');
             $table->integer('category_id')->nullable();
             $table->string('title');
-            $table->string('slug');
+            $table->string('slug')->nullable();
             $table->string('tags')->nullable();
             $table->string('image')->nullable();
             $table->string('template')->default('Default Template');
