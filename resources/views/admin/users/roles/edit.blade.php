@@ -12,13 +12,12 @@
             Edit Role
         </div>
     </div>
-
+    
     <section class="container-fluid mt-20">
         {!! Form::model($role, ['method' => 'PATCH', 'route' => ['roles.update', $role->id], 'class' => '_form' ]) !!}
 
 
         @include('errors.list')
-        {{ csrf_field() }}
 
         <div class="block">
             <div class="block-content form">
@@ -88,19 +87,17 @@
 
 {!! Form::close() !!}
 
-@if (Auth::user()->role->name === 'admin')
-<div class="row">
-    <div class="col-sm-6 mb-40">
-        <div class="row">
-            <div class="col-sm-6 text-left">
-                <button class="btn btn-danger" data-toggle="modal" data-target="#confirmModal">
-                    Supprimer
-                </button>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="row">
+                <div class="col-sm-6 text-left">
+                    <button class="btn btn-danger" data-toggle="modal" data-target="#confirmModal">
+                        Delete Role
+                    </button>
+                </div>
             </div>
         </div>
     </div>
-</div>
-@endif
 </section>
 
     @include('admin.modals.confirm', [

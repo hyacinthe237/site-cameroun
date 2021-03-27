@@ -4,37 +4,152 @@
         <li class="{{ Request::is('admin') ? 'active' : '' }}">
             <a href="{{ route('admin') }}">
                 <i class="ion-speedometer"></i>
-                Tableau de bord
+                Dashboard
             </a>
         </li>
 
-        <li class="{{ Request::is('admin/tables*') ? 'active' : '' }}">
-            <a href="/admin/tables">
-                <i class="ion-ios-people"></i>
-                Tables
+        {{-- <li class="
+            {{ Request::is('admin/returns*') ? 'active' : '' }}
+            {{ Request::is('admin/bookings*') ? 'active' : '' }}
+            {{ Request::is('admin/pickups*') ? 'active' : '' }}"
+        >
+            <a href="{{ route('bookings.index' )}}">
+                <i class="ion-android-cart"></i>
+                Bookings
             </a>
         </li>
 
-        <li class="{{ Request::is('admin/billets*') ? 'active' : '' }}">
-            <a href="/admin/billets">
-                <i class="ion-levels"></i>
-                Billets
+        <li class="dropdown {{ Request::is('admin/vehicles*') ? 'active open' : '' }}">
+            <a href="" data-toggle="dropdown">
+                <i class="ion-android-car"></i>
+                Vehicles <span class="ml-10 ion-chevron-down"></span>
             </a>
+
+            <ul class="sidebar-dropdown">
+                <li>
+                    <a href="{{ route('makes.index' )}}">
+                        Makes
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('models.index' )}}">
+                        Models
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('cars.index' )}}">
+                        Cars
+                    </a>
+                </li>
+            </ul>
         </li>
+
+
+        @if (Auth::user()->role->name === 'admin')
+            <li class="{{ Request::is('admin/pages*') ? 'active' : '' }}">
+                <a href="{{ route('pages.index' )}}">
+                    <i class="ion-document-text"></i>
+                    Pages
+                </a>
+            </li>
+
+            <li class="{{ Request::is('admin/posts*') ? 'active' : '' }}">
+                <a href="{{ route('posts.index' )}}">
+                    <i class="ion-document"></i>
+                    Posts
+                </a>
+            </li>
+
+            <li class="{{ Request::is('admin/users*') ? 'active' : '' }}">
+                <a href="/admin/users">
+                    <i class="ion-android-people"></i>
+                    Users
+                </a>
+            </li>
+
+
+            <li class="{{ Request::is('admin/payments*') ? 'active' : '' }}">
+                <a href="/admin/payments">
+                    <i class="ion-card"></i>
+                    Payments
+                </a>
+            </li>
+
+
+            <li class="dropdown {{ Request::is('admin/extra*') ? 'active open' : '' }}">
+                <a href="" data-toggle="dropdown">
+                    <i class="ion-plus"></i>
+                    Extra <span class="ml-10 ion-chevron-down"></span>
+                </a>
+
+                <ul class="sidebar-dropdown">
+                    <li>
+                        <a href="/admin/coupons">
+                            <i class="ion-cash"></i>
+                            Coupons
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('options.index' )}}">
+                            <i class="ion-document-text"></i>
+                            Options
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="{{ route('locations.index' )}}">
+                            <i class="ion-pin"></i>
+                            Locations
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="{{ route('faqs.index') }}">
+                             <i class="ion-help"></i> FAQs
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/admin/files">
+                            <i class="ion-folder"></i>
+                            Files
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/admin/settings">
+                            <i class="ion-android-options"></i>
+                            Settings
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/admin/seasonals">
+                            <i class="ion-calendar"></i>
+                            Seasonal
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('admin.slider') }}">
+                            <i class="ion-android-send"></i>
+                            Home Slider
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+        @endif --}}
 
         <li class="separer"></li>
 
         <li>
             <a href="/" target="_blank">
                 <i class="ion-ios-world-outline"></i>
-                Aller sur le site
+                Main Website
             </a>
         </li>
 
         <li>
             <a href="{{ route('admin.logout') }}">
                 <i class="ion-power"></i>
-                Déconnexion
+                Sign Out
             </a>
         </li>
     </ul>

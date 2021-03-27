@@ -16,7 +16,7 @@
     <section class="container-fluid mt-20">
         {!! Form::model($permission, ['method' => 'PATCH', 'route' => ['permissions.update', $permission->id], 'class' => '_form' ]) !!}
 
-        {{ csrf_field() }}
+
         @include('errors.list')
 
         <div class="block">
@@ -42,19 +42,17 @@
 
 {!! Form::close() !!}
 
-@if (Auth::user()->role->name === 'admin')
-<div class="row">
-    <div class="col-sm-6 mb-40">
-        <div class="row">
-            <div class="col-sm-6 text-left">
-                <button class="btn btn-danger" data-toggle="modal" data-target="#confirmModal">
-                    Supprimer
-                </button>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="row">
+                <div class="col-sm-6 text-left">
+                    <button class="btn btn-danger" data-toggle="modal" data-target="#confirmModal">
+                        Delete permission
+                    </button>
+                </div>
             </div>
         </div>
     </div>
-</div>
-@endif
 </section>
 
     @include('admin.modals.confirm', [

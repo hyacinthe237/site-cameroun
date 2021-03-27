@@ -4,31 +4,30 @@
 @section('body')
     <div class="page-heading">
         <div class="buttons">
-            <a href="{{ route('roles.index') }}" class="btn btn-lg btn-primary">
-                <i class="ion-grid"></i> Roles
+            <a href="{{ route('pages.create') }}" class="btn btn-lg btn-teal">
+                <i class="ion-plus"></i> New Page
             </a>
         </div>
 
         <div class="title">
-            Users
+            Pages
         </div>
     </div>
 
     <section class="page page-white">
         <div class="container-fluid">
+
+            @include('errors.list')
+
             <div class="mt-10">
                 <div class="row">
                     <form class="_form" action="" method="get">
                         <div class="col-sm-4">
-                            <div class="form-select grey">
-                                <select class="form-control input-lg" name="role">
-                                    <option value="">All</option>
-                                    @foreach($roles as $role)
-                                        <option value="{{ $role->name }}" {{ Request::get('role') == $role->
-                                            name ? 'selected' : '' }}>
-                                            {{ $role->name }}
-                                        </option>
-                                    @endforeach
+                            <div class="form-group">
+                                <select class="form-control input-lg" name="status">
+                                    <option value="">Select status</option>
+                                    <option value="published" {{ Request::get('status') == 'published' ? 'selected' : '' }}>Published</option>
+                                    <option value="unpublished" {{ Request::get('status') == 'unpublished' ? 'selected' : '' }}>Unpublished</option>
                                 </select>
                             </div>
                         </div>
@@ -41,12 +40,12 @@
                                         name="keywords"
                                         class="form-control input-lg"
                                         value="{{ Request::get('keywords') }}"
-                                        placeholder="First name, last name">
+                                        placeholder="Page title">
                                     </div>
                                 </div>
 
                                 <div class="col-sm-4">
-                                    <button type="submit" class="btn btn-lg btn-primary btn-block">
+                                    <button type="submit" class="btn btn-lg btn-wise btn-block">
                                         Filter
                                     </button>
                                 </div>
@@ -56,28 +55,26 @@
                 </div>
             </div>
 
-            @include('errors.list')
+
 
             <div class="mt-10">
                 <table class="table table-striped">
                     <thead>
                         <tr>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Role</th>
-                            <th>Active</th>
+                            <th>Title</th>
+                            <th>Slug</th>
+                            <th>Published</th>
                             <th>Created</th>
                         </tr>
                     </thead>
 
                     <tbody>
-                        @foreach($users as $user)
-                            <tr data-href="/admin/users/{{ $user->id }}/edit">
-                                <td class="bold">{{ $user->getNameAttribute() }}</td>
-                                <td>{{ $user->email }}</td>
-                                <td>{{ $user->role->name }}</td>
-                                <td>{{ $user->is_active ? 'Yes' : 'No'}}</td>
-                                <td>{{ date('d/m/Y H:i', strtotime($user->created_at)) }}</td>
+                        @foreach($pages as $page)
+                            <tr data-href="{{ route('pages.edit', $page->id) }}">
+                                <td class="bold">{{ $page->title }}</td>
+                                <td>{{ $page->slug }}</td>
+                                <td>{{ $page->status === 'published' ? 'Yes' : 'No'}}</td>
+                                <td>{{ date('d/m/Y H:i', strtotime($page->created_at)) }}</td>
                             </tr>
                         @endforeach
                     </tbody>
@@ -86,6 +83,5 @@
             <!-- End of table -->
         </div>
     </section>
-
 
 @endsection
