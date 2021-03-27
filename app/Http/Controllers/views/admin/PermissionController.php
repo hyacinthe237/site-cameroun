@@ -25,7 +25,7 @@ class PermissionController extends Controller
             $permissions = Permission::when($keywords, function($query) use ($keywords) {
                 return $query->where('name', 'like', '%'.$keywords.'%');
             })
-            ->paginate(self::BACKEND_PAGINATE);
+            ->paginate(50);
 
             return view('admin.users.permissions.index', ['permissions' => $permissions]);
         }
@@ -59,7 +59,7 @@ class PermissionController extends Controller
         if ($existing) {
             return redirect()->back()
             ->withInput($request->all())
-            ->withErrors(['exists' => 'Cette permission existe déjà']);
+            ->withErrors(['exists' => 'That permission already exists']);
         }
 
         $validator = Validator::make($request->all(), [

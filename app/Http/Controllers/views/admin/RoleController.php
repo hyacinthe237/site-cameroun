@@ -25,7 +25,7 @@ class RoleController extends Controller
             $roles = Role::when($keywords, function($query) use ($keywords) {
                 return $query->where('name', 'like', '%'.$keywords.'%');
             })
-            ->paginate(self::BACKEND_PAGINATE);
+            ->paginate(50);
 
             return view('admin.users.roles.index', ['roles' => $roles]);
         }
