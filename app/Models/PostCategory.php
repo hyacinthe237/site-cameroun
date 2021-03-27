@@ -4,9 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Table extends Model
+class PostCategory extends Model
 {
-    protected $table = 'tables';
+    protected $table = 'post_categories';
     protected $guarded = ['id'];
-
 }
