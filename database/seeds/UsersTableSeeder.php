@@ -14,16 +14,18 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
         User::create([
-            'role_id'        => 1,
-            'number'         => 1000000,
-            'firstname'      => 'Din',
-            'lastname'       => 'Admin',
-            'phone'          => '694694694',
-            'email'          => 'admin@email.com',
-            'password'       => bcrypt('secret'),
-            'sex'            => 'Male',
-            'is_active'      => 1,
-            'api_token' => str_random(100)
+            'role_id'    => 1,
+            'number'     => 1000000,
+            'firstname'  => 'Hyacinthe',
+            'lastname'   => 'ABANDA',
+            'phone'      => '651780612',
+            'email'      => 'hyacinthabanda@gmail.com',
+            'password'   => bcrypt('pass'),
+            'gender'     => 'Male',
+            'status'     => 'active',
+            'dob'        => '1991-06-24',
+            'api_token'  => str_random(128)
         ]);
+
     }
 }

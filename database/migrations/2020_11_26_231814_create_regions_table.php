@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateRoles extends Migration
+class CreateRegionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,14 @@ class CreateRoles extends Migration
      */
     public function up()
     {
-        Schema::create('roles', function (Blueprint $table) {
+        Schema::create('regions', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->integer('level');
-            $table->string('description')->nullable();
+            $table->string('slug');
+            $table->string('tags')->nullable();
+            $table->decimal('lon', 8, 6)->nullable();
+            $table->decimal('lat', 8, 6)->nullable();
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }
@@ -29,6 +32,6 @@ class CreateRoles extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('roles');
+        Schema::dropIfExists('regions');
     }
 }
