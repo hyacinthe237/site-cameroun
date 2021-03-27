@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateNiveauxTable extends Migration
+class CreateBilletsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,15 @@ class CreateNiveauxTable extends Migration
      */
     public function up()
     {
-        Schema::create('niveaux', function (Blueprint $table) {
+        Schema::create('billets', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('table_id');
             $table->string('name');
-            $table->string('display_name');
+            $table->string('code');
+            $table->enum('type', ['Couple', 'Single']);
+            $table->enum('civilite', ['M.', 'Mme.', 'M. & Mme']);
+            $table->boolean('is_entered')->default(false);
             $table->timestamps();
-            $table->softDeletes();
         });
     }
 
@@ -29,6 +32,6 @@ class CreateNiveauxTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('niveaux');
+        Schema::dropIfExists('billets');
     }
 }

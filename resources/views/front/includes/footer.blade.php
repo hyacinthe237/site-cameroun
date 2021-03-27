@@ -1,4 +1,4 @@
-<section class="site-footer">
+{{-- <section class="site-footer">
     <div class="container">
         <button class="btn btn-warning pull-right" id="scroller">
             <i class="ion-chevron-up"></i>
@@ -29,4 +29,4 @@
 
         </div>
     </div>
-</section>
+</section> --}}

@@ -5,9 +5,9 @@
             <span class="ion-navicon"></span>
         </button>
 
-        <a href="/" class="navbar-brand"><span>PNFMV</span> Formation</a>
+        <a href="/" class="navbar-brand"><span>CODE</span> SEARCH</a>
     </div>
-    <div id="navbar" class="navbar-collapse collapse">
+    {{-- <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-right">
             <li class="{{ Request::is('about') ? 'active' : '' }}"><a href="https://www.pnfmv.org/" target="_blank">A propos</a></li>
             <li class="{{ Request::is('stagiaires') ? 'active' : '' }}"><a href="{{ route('front.stagiaires.create') }}">Je suis Stagiaire</a></li>
@@ -17,5 +17,5 @@
                 <a href="tel:{{ config('site.phone') }}">{{ config('site.phone') }}</a>
             </li>
         </ul>
-    </div>
+    </div> --}}
 </div>

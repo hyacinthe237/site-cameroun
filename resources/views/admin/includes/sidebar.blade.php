@@ -4,69 +4,23 @@
         <li class="{{ Request::is('admin') ? 'active' : '' }}">
             <a href="{{ route('admin') }}">
                 <i class="ion-speedometer"></i>
-                Dashboard
+                Tableau de bord
             </a>
         </li>
 
-        <li class="{{ Request::is('admin/stagiaires*') ? 'active' : '' }}">
-            <a href="/admin/stagiaires">
+        <li class="{{ Request::is('admin/tables*') ? 'active' : '' }}">
+            <a href="/admin/tables">
                 <i class="ion-ios-people"></i>
-                Etudiants
+                Tables
             </a>
         </li>
 
-        <li class="{{ Request::is('admin/niveaux*') ? 'active' : '' }}">
-            <a href="/admin/niveaux">
+        <li class="{{ Request::is('admin/billets*') ? 'active' : '' }}">
+            <a href="/admin/billets">
                 <i class="ion-levels"></i>
-                Niveaux
+                Billets
             </a>
         </li>
-
-        <li class="{{ Request::is('admin/formations*') ? 'active' : '' }}">
-            <a href="/admin/formations">
-                <i class="ion-university"></i>
-                Formations
-            </a>
-        </li>
-
-        <li class="{{ Request::is('admin/formateurs*') ? 'active' : '' }}">
-            <a href="/admin/formateurs">
-                <i class="ion-ios-person"></i>
-                Formateurs
-            </a>
-        </li>
-
-        <li class="{{ Request::is('admin/evaluations*') ? 'active' : '' }}">
-            <a href="/admin/evaluations">
-                <i class="ion-ios-bookmarks"></i>
-                Evaluations
-            </a>
-        </li>
-
-        @if (Auth::user()->role->name === 'admin')
-            <li class="{{ Request::is('admin/users*') ? 'active' : '' }}">
-                <a href="/admin/users">
-                    <i class="ion-android-people"></i>
-                    Utilisateurs
-                </a>
-            </li>
-        @endif
-
-        <li class="{{ Request::is('admin/sessions*') ? 'active' : '' }}">
-            <a href="/admin/sessions">
-                <i class="ion-ios-person"></i>
-                Semestres
-            </a>
-        </li>
-
-        @if (Auth::user()->role->name === 'editor')
-            <li class="{{ Request::is('admin/users*') ? 'active' : '' }}">
-              <a href="{{ route('users.show', Auth::user()->number) }}">
-                  <i class="ion-android-people"></i>
-                  Mon Profil
-              </a>
-            </li>
-        @endif
 
         <li class="separer"></li>
 

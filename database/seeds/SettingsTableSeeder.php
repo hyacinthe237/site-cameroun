@@ -2,7 +2,6 @@
 
 use Illuminate\Database\Seeder;
 use Carbon\Carbon;
-use App\Models\Session;
 
 class SettingsTableSeeder extends Seeder
 {
@@ -13,14 +12,19 @@ class SettingsTableSeeder extends Seeder
    */
   public function run()
   {
-      Session::create(['name' => '2020', 'status' => 'pending' ]);
-
-      $categories = [
-           ["name" => "Propre", 'created_at' => Carbon::now(), 'updated_at' => Carbon::now()],
-           ["name" => "Partenariale", 'created_at' => Carbon::now(), 'updated_at' => Carbon::now()],
-           ["name" => "Commande", 'created_at' => Carbon::now(), 'updated_at' => Carbon::now()],
+      $tables = [
+           ["name" => "Table 1", 'created_at' => Carbon::now(), 'updated_at' => Carbon::now()],
        ];
 
-      DB::table('categories')->insert($categories);
+      DB::table('tables')->insert($tables);
+
+      $billets = [
+           [
+             "table_id" => 1, "name" => "DIN EKOLO", "code" => str_random(8), "type" => "Couple", "civilite" => "M. & Mme",
+             'created_at' => Carbon::now(), 'updated_at' => Carbon::now()
+           ],
+       ];
+
+      DB::table('billets')->insert($billets);
   }
 }
